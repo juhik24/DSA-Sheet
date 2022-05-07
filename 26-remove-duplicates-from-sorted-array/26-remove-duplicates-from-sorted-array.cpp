@@ -1,5 +1,4 @@
 class Solution {
-    #include<bits/stdc++.h>
 public:
     int removeDuplicates(vector<int>& nums) {
         int n = nums.size();
