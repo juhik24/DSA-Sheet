@@ -3,7 +3,6 @@ public:
     int distributeCandies(vector<int>& candyType) {
         int n = candyType.size();
         map<int, int>mp;
-        //mp.insert({candyType[0], 1});
         map<int, int>::iterator it;
         for(int i = 0; i < n; i++) {
             it = mp.find(candyType[i]);
