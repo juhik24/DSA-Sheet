@@ -3,7 +3,7 @@ public:
     int di[4] = {-1, 0, 1, 0};
     int dj[4] = {0, -1, 0, 1};
     
-    bool explore(vector<vector<char>>&board, int i, int j, int size, string word) {
+    bool explore(vector<vector<char>>&board, int i, int j, int size, string &word) {
         if(size == word.length()) return true;
         if(i < 0 || j < 0 || i >= board.size() || j >= board[0].size()) return false;
         if(word[size] != board[i][j]) return false;
