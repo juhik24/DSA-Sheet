@@ -27,7 +27,7 @@ public:
             for(int j = 0; j < m; j++) {
                 if(board[i][j] != word[0]) continue;
                 bool ans = explore(board, i, j, 0, word);
-                if(ans) return ans;
+                if(ans) return true;
             }
         }
         return false;
