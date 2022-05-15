@@ -20,14 +20,15 @@ public:
             for(int j = 0; j < m; j++) {
                 int cnt;
                 cnt = explore(board, i, j, n, m);
+                //Original = 0 --> New = 0 --> 0
                 if((cnt < 2 || cnt > 3) && board[i][j] == 1) {
-                    board[i][j] = 1;
+                    board[i][j] = 1;    //Original = 1 --> New = 0 --> 1
                 }
                 else if((cnt == 2 || cnt == 3) && board[i][j] == 1) {
-                    board[i][j] = 3;
+                    board[i][j] = 3;   //Original = 1 --> New = 1 --> 3
                 }
                 else if(cnt == 3 && board[i][j] == 0) {
-                    board[i][j] = 2;
+                    board[i][j] = 2;   //Original = 0 --> New = 1 --> 2
                 }
             }
         }
