@@ -9,7 +9,6 @@ public:
             if(i+di[k] < 0 || i+di[k] >= n || j+dj[k] < 0 || j+dj[k] >= m) continue;
             else if(board[i+di[k]][j+dj[k]] == 1) cnt++;
         }
-        //cout << cnt << " ";
         return cnt;
     }
     
