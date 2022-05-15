@@ -7,7 +7,7 @@ public:
         int cnt=0;
         for(int k = 0; k < 8; k++) {
             if(i+di[k] < 0 || i+di[k] >= n || j+dj[k] < 0 || j+dj[k] >= m) continue;
-            else if(board[i+di[k]][j+dj[k]] == 1) cnt++;
+            else if(board[i+di[k]][j+dj[k]] == 1 || board[i+di[k]][j+dj[k]] == 3) cnt++;
         }
         return cnt;
     }
@@ -15,25 +15,27 @@ public:
     void gameOfLife(vector<vector<int>>& board) {
         int n = board.size();
         int m = board[0].size();
-        vector<vector<int>>ans(n);
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < m; j++) {
-                ans[i].push_back(board[i][j]);
-            }
-        }
         
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < m; j++) {
                 int cnt;
                 cnt = explore(board, i, j, n, m);
-                if((cnt < 2 || cnt > 3) && board[i][j] == 1) ans[i][j] = 0;
-                else if((cnt == 2 || cnt == 3) && board[i][j] == 1) continue;
-                else if(cnt == 3 && board[i][j] == 0) ans[i][j] = 1;
+                if((cnt < 2 || cnt > 3) && board[i][j] == 1) {
+                    board[i][j] = 1;
+                }
+                else if((cnt == 2 || cnt == 3) && board[i][j] == 1) {
+                    board[i][j] = 3;
+                }
+                else if(cnt == 3 && board[i][j] == 0) {
+                    board[i][j] = 2;
+                }
             }
         }
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < m; j++) {
-                board[i][j] = ans[i][j];
+                if(board[i][j] == 1) board[i][j] = 0;
+                if(board[i][j] == 2) board[i][j] = 1;
+                if(board[i][j] == 3) board[i][j] = 1;
             }
         }
     }
