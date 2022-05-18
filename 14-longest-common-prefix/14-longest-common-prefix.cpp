@@ -4,10 +4,10 @@ public:
         int n = strs.size();
         if(n == 1) return strs[0];
         string ans = "";
-        int len = 0;
+        int len = INT_MAX;
         for(int i = 0; i < n; i++) {
             int j = strs[i].length();
-            len = max(j, len);
+            len = min(j, len);
         }
         for(int i = 0; i < len; i++) {
             int f=0;
