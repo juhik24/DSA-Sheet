@@ -2,7 +2,6 @@ class Solution {
 public:
     string reverseWords(string s) {
         int n = s.length();
-        string ans = "";
         stack<string>st;
         for(int i = 0; i < n; i++) {
             string temp = "";
@@ -13,11 +12,12 @@ public:
             }
             st.push(temp);
         }
+        s.clear();
         while(!st.empty()) {
-            if(ans == "") ans += st.top();
-            else ans = ans + " " + st.top();
+            if(s == "") s += st.top();
+            else s = s + " " + st.top();
             st.pop();
         }
-        return ans;
+        return s;
     }
 };
