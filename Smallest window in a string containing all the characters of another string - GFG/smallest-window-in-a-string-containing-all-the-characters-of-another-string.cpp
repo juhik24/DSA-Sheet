@@ -26,7 +26,6 @@ class Solution
             if(mp.find(s[j]) != mp.end()) {
                 if(mp[s[j]] == 0) cnt--;
             }
-            //if(mp[s[j]] == 0) count--;
             if(cnt == 0) {
                 while(cnt==0) {
                     if(j-i+1 < res) {
