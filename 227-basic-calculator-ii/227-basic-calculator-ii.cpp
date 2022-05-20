@@ -5,7 +5,8 @@ public:
         stack<int>st;
         char sign = '+';
         for(int i = 0; i < n; i++) {
-            if(isdigit(s[i])) {
+            char ch = s[i];
+            if(isdigit(ch)) {
                 int val = 0;
                 while(i < n && isdigit(s[i])) {
                     val = val*10 + (s[i]-'0');
@@ -27,7 +28,7 @@ public:
                     st.push(ans);
                 }
             }
-            else if(s[i] != ' ') sign = s[i]; 
+            else if(ch != ' ') sign = ch; 
         }
         int sum = 0;
         while(st.size() > 0) {
