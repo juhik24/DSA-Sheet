@@ -29,21 +29,21 @@ public:
             if(num == 0 || (a[1] == '0' && a[2] == '0')) res += "Million ";
         }
         if(num >= 1000000) {
-            res += solve(((num/1000000)%100), "Million ");
+            res += solve((num/1000000), "Million ");
             num = num%1000000;
         }
         if(num >= 100000) {
-            res += solve(((num/100000)%100), "Hundred ");
+            res += solve((num/100000), "Hundred ");
             string a = to_string(num);
             num = num%100000;
             if(num == 0 || (a[1] == '0' && a[2] == '0')) res += "Thousand ";
         }
         if(num >= 1000) {
-            res += solve(((num/1000)%100), "Thousand ");
+            res += solve((num/1000), "Thousand ");
             num = num%1000;
         }
         if(num >= 100) {
-            res += solve(((num/100)%10), "Hundred ");
+            res += solve((num/100), "Hundred ");
             num = num%100;
         }
         res += solve(num, "");
