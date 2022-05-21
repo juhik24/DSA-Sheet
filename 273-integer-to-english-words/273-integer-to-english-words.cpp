@@ -23,7 +23,7 @@ public:
             num = num%1000000000;
         }
         if(num >= 100000000) {
-            res += solve(((num/100000000)), "Hundred ");
+            res += solve((num/100000000), "Hundred ");
             string a = to_string(num);
             num = num%100000000;
             if(num == 0 || (a[1] == '0' && a[2] == '0')) res += "Million ";
