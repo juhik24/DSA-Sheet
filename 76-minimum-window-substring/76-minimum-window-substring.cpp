@@ -1,7 +1,6 @@
 class Solution {
 public:
-    string minWindow(string s, string t) {
-        
+    string minWindow(string s, string t) {  
         int n = s.length();
         int m = t.length();
         unordered_map<char, int>mp;
