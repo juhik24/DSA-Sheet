@@ -18,10 +18,6 @@ public:
             if(i >= 0) i--;
             if(j >= 0) j--;
         }
-        // if(carry == 1) {
-        //     ans += '1';
-        // }
-        // reverse(ans.begin(), ans.end());
         return ans;
     }
 };
