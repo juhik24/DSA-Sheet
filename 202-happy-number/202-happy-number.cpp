@@ -8,7 +8,7 @@ public:
             int sum = 0;
             while(n) {
                 int a = n%10;
-                sum += a*a;
+                sum += pow(a, 2);
                 n = n/10;
             }
             n = sum;
