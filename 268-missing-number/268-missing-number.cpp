@@ -2,15 +2,17 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) {
         int n = nums.size();
-        sort(nums.begin(), nums.end());
-        int ans = INT_MAX ;
+        unordered_set<int>s;
         for(int i = 0; i < n; i++) {
-            if(i != nums[i]) {
+            s.insert(nums[i]);
+        }
+        int ans;
+        for(int i = 0; i <= n; i++) {
+            if(s.find(i) == s.end()) {
                 ans = i;
                 break;
             }
         }
-        if(ans == INT_MAX) return n;
-        else return ans;
+        return ans;
     }
 };
