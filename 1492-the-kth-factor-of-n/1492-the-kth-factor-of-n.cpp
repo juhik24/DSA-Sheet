@@ -7,11 +7,9 @@ public:
                 k--;
             }
             if(k == 0) {
-                factor = i;
-                break;
+                return i;
             }
         }
-        if(factor > n) return -1;
-        return factor;
+        return -1;
     }
 };
