@@ -1,6 +1,4 @@
 class Solution {
-    #define max 2147483647;
-    #define min -21474836478;
 public:
     int reverse(int x) {
         int num = 0;
