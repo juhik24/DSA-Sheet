@@ -33,14 +33,15 @@ public:
                 n2--;
             }
         }
-        while(headA != headB) {
-            if(headA == headB) {
-                return headA;
+        if(headA == headB) return headA;
+        while(headA && headB) {
+            if(headA->next == headB->next) {
+                temp = headA->next;
+                break;
             }
             headA = headA->next;
             headB = headB->next;
         }
-        if(headA == headB) return headA;
-        else return temp;
+        return temp;
     }
 };
