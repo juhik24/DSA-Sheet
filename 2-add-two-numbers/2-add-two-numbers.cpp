@@ -10,21 +10,7 @@
  */
 class Solution {
 public:
-    ListNode* reverse(ListNode* head) {
-        ListNode* cur = head, *prev = NULL, *next;
-        while(cur) {
-            next = cur->next;
-            cur->next = prev;
-            prev = cur;
-            cur = next;
-        }
-        head = prev;
-        return head;
-    }
-    
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        // l1 = reverse(l1);
-        // l2 = reverse(l2);
         ListNode* head = NULL, *prev = NULL;
         int carry = 0;
         while(l1 || l2 || carry != 0) {
@@ -45,7 +31,6 @@ public:
             if(prev != NULL) prev->next = cur;
             prev = cur;
         }
-        //head = reverse(head);
         return head;
     }
 };
