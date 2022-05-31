@@ -20,10 +20,10 @@ public:
             cur = cur->next;
             i++;
         }
-        int n = right-left;
+        int n = right-left+1;
         ListNode* prev = NULL, *next;
         i = 0;
-        while(i <= n) {
+        while(i < n) {
             next = cur->next;
             cur->next = prev;
             prev = cur;
