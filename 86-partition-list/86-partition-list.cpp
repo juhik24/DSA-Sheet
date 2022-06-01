@@ -15,7 +15,6 @@ public:
         ListNode* after = new ListNode(0);
         ListNode* cur = head, *btemp = before, *atemp = after;
         while(cur) {
-            ListNode* next = cur->next;
             if(cur->val < x) {
                 btemp->next = cur;
                 btemp = cur;
