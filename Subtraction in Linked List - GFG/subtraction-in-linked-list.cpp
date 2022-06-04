@@ -96,7 +96,7 @@ Node* reverse(Node* head) {
         cur = next;
     }
     head = prev;
-    return prev;
+    return head;
 }
 
 Node* padzeros(Node* head) {
@@ -137,7 +137,6 @@ Node* subLinkedList(Node* l1, Node* l2)
     l2 = padzeros(l2);
     int len1 = getLength(l1);
     int len2 = getLength(l2);
-    Node* temp1 = l1, *temp2 = l2;
     Node* first = NULL, *second = NULL;
     if(len1 == len2) {
        first = getMax(l1, l2);
@@ -182,10 +181,11 @@ Node* subLinkedList(Node* l1, Node* l2)
     }
     Node* head = reverse(ans->next);
     if(head->data == 0) {
-        while(head->next != NULL) {
-            if(head->data != 0) break;
-            else head = head->next;
-        }
+        // while(head->next != NULL) {
+        //     if(head->data != 0) break;
+        //     else head = head->next;
+        // }
+        head = padzeros(head);
     }
     return head;
 }
