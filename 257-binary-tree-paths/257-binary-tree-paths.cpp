@@ -30,8 +30,7 @@ public:
         if(root == NULL) {
             return ans;
         }
-        string s = to_string(root->val);
-        str += s;
+        str += to_string(root->val);
         if(root->left == NULL && root->right == NULL) {
             ans.push_back(str);
             return ans;
