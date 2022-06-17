@@ -14,7 +14,6 @@ public:
     void paths(TreeNode* root, vector<string>&ans, string &str) {
         if(root->left == NULL && root->right == NULL) {
             string temp = str;
-           // temp =  temp + "->" + ch;
             temp = temp + "->" + to_string(root->val);
             ans.push_back(temp);
             return;
