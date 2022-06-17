@@ -12,16 +12,14 @@
 class Solution {
 public:
     void paths(TreeNode* root, vector<string>&ans, string &str) {
+        string temp = str;
         if(root->left == NULL && root->right == NULL) {
-            string temp = str;
             temp = temp + "->" + to_string(root->val);
             ans.push_back(temp);
             return;
         }
         
-        string ch = to_string(root->val);
-        string temp = str;
-        temp =  temp + "->" + ch;
+        temp =  temp + "->" + to_string(root->val);
         if(root->left) paths(root->left, ans, temp);
         if(root->right) paths(root->right, ans, temp);
     }
@@ -30,7 +28,6 @@ public:
         vector<string>ans;
         string str = "";
         if(root == NULL) {
-            ans.push_back(str);
             return ans;
         }
         string s = to_string(root->val);
