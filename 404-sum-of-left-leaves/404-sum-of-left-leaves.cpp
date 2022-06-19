@@ -26,8 +26,8 @@ public:
     
     int sumOfLeftLeaves(TreeNode* root) {
         if(root->left == NULL && root->right == NULL) return sum;
-        if(root->left) solve(root->left, true);
-        if(root->right) solve(root->right, false);
+        solve(root->left, true);
+        solve(root->right, false);
         return sum;
     }
 };
