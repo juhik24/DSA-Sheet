@@ -12,12 +12,11 @@
 class Solution {
 public:
     vector<TreeNode*> solve(int start, int end) {
-        if(start > end) {
-            vector<TreeNode*>base;
-            base.push_back(NULL);
-            return base;
-        }
         vector<TreeNode*>ans;
+        if(start > end) {
+            ans.push_back(NULL);
+            return ans;
+        }
         for(int i = start; i <= end; i++) {
             vector<TreeNode*>left = solve(start, i-1);
             vector<TreeNode*>right = solve(i+1, end);
