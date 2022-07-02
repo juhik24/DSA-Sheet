@@ -11,7 +11,11 @@
  */
 class Solution {
 public:
+    unordered_map<int, int>mp;
     TreeNode* constructFromPrePost(vector<int>& preorder, vector<int>& postorder) {
+        for(int i = 0; i < postorder.size(); i++) {
+            mp[postorder[i]] = i;
+        }
         return solve(preorder, 0, preorder.size()-1, postorder, 0, postorder.size()-1);
     }
     
@@ -22,10 +26,8 @@ public:
         TreeNode* root = new TreeNode(preorder[preStart]);
         if(preStart == preEnd) return root;
         
-        int postIndex = postStart;
-        while(postorder[postIndex] != preorder[preStart+1]) {
-            postIndex++;
-        }
+        int postIndex = mp[preorder[preStart+1]];
+        
         int len = postIndex - postStart + 1;
         root->left = solve(preorder, preStart+1, preStart+len, postorder, postStart, postIndex);
         root->right = solve(preorder, preStart+len+1, preEnd, postorder, postIndex+1, postEnd-1);
