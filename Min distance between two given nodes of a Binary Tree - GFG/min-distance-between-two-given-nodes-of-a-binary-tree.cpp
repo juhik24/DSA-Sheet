@@ -102,8 +102,7 @@ class Solution{
         Node* right = LCA(root->right, a, b);
         if(left && right) return root;
         else if(left) return left;
-        else if(right) return right;
-        else return NULL;
+        else return right;
     }
     
     int dist(Node* root, int data, int d) {
