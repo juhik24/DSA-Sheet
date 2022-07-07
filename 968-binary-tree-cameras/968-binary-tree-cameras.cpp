@@ -12,26 +12,22 @@
 class Solution {
 public:
     int cam = 0;
-    unordered_set<TreeNode*>s;
     
-    void solve(TreeNode* root, TreeNode* parent) {
-        if(root != NULL) {
-            solve(root->left, root);
-            solve(root->right, root);
-            if(parent == NULL && s.find(root) == s.end() || s.find(root->left) == s.end() || s.find(root->right) == s.end()) {
-                cam++;
-                s.insert(root);
-                s.insert(parent);
-                s.insert(root->left);
-                s.insert(root->right);
-            }
+    int solve(TreeNode* root) {
+        if(root == NULL) return 1;
+        int left = solve(root->left);
+        int right = solve(root->right);
+        if(left == 0 || right == 0) {
+            cam++;
+            return 2;
         }
+        else if(left == 2 || right == 2) return 1;
+        else return 0;
     }
     
     int minCameraCover(TreeNode* root) {
-        if(root == NULL) return cam;
-        s.insert(NULL);
-        solve(root, NULL);
-        return cam;
+        int ans = solve(root);
+        if(ans == 0) return cam+1;
+        else return cam;
     }
 };
