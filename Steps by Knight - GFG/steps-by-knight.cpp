@@ -24,9 +24,9 @@ class Solution
 	            int m = q.front().first, n = q.front().second;
 	            q.pop();
 	            if(m == TargetPos[0] && n == TargetPos[1]) return steps;
-	            for(int i = 0; i < 8; i++) {
-	                int x = m+di[i];
-	                int y = n+dj[i];
+	            for(int j = 0; j < 8; j++) {
+	                int x = m+di[j];
+	                int y = n+dj[j];
 	                if(x > 0 && x <= N && y > 0 && y <= N && vis[x][y] == 0) {
 	                    q.push({x, y});
 	                    vis[x][y] = 1;
