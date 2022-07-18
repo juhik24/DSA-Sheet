@@ -10,8 +10,9 @@ public:
     }
     
     int makeConnected(int n, vector<vector<int>>& connections) {
-        vector<int>adj[n];
         int m = connections.size();
+        if(m < n-1) return -1;
+        vector<int>adj[n];
         for(int i = 0; i < m; i++) {
             int u = connections[i][0];
             int v = connections[i][1];
@@ -26,7 +27,6 @@ public:
                 dfs(i, vis, adj);
             }
         }
-        if(m < n-1) return -1;
         int redundant = m - ((n-1) - (components-1));
         if(redundant >= components-1) return components-1;
         else return -1;
