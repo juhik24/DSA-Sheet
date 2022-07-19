@@ -1,14 +1,14 @@
 class Solution {
 public:
     int mx = -1;
-    void bfs(int node, vector<int>&vis, vector<int>adj[], int time, vector<int>&informTime) {
+    void dfs(int node, vector<int>&vis, vector<int>adj[], int time, vector<int>&informTime) {
         if(adj[node].size() == 0) return;
         vis[node] = 1;
         time=time+informTime[node];
         mx = max(mx, time);
         for(auto i : adj[node]) {
             if(vis[i] == 0) {
-                bfs(i, vis, adj, time, informTime);
+                dfs(i, vis, adj, time, informTime);
             }
         }
     }
@@ -25,7 +25,7 @@ public:
         vector<int>vis(n, 0);
         vis[headID] = 1;
         int time = 0;
-        bfs(headID, vis, adj, time, informTime);
+        dfs(headID, vis, adj, time, informTime);
         return mx;
     }
 };
