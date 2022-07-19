@@ -26,7 +26,7 @@ public:
         }
         else {
             parent[b] = a;
-            a++;
+            rank[a]++;
         }
     }
     
