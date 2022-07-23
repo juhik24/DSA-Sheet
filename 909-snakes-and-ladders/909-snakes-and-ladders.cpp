@@ -13,12 +13,12 @@ public:
         queue<int> q;
         q.push(1);
         int n = board.size();
-        vector<vector<bool>> visited(n, vector<bool>(n)); // so that we are not trapped in a loop
+        vector<vector<bool>> visited(n, vector<bool>(n, false)); // so that we are not trapped in a loop
         visited[board.size()-1][0]=true;
         while(q.size()!=0) // work until the queue is empty
         {
-            int z = q.size();
-            for(int i=0; i<z; i++) // for each step use all the elements in the queue
+            int size = q.size();
+            for(int i=0; i<size; i++) // for each step use all the elements in the queue
             {
                 int x = q.front();
                 if(x == n*n) return steps;
