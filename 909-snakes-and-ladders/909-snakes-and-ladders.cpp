@@ -27,10 +27,12 @@ public:
                 {
                     if(j+x > n*n) break;
                     pair<int, int> p = coordinates(x+j, n);
-                    if(visited[p.first][p.second]) continue;
-                    visited[p.first][p.second] = true;
-                    if(board[p.first][p.second]!=-1) // if snake or ladder
-                        q.push(board[p.first][p.second]);
+                    int r = p.first;
+                    int c = p.second;
+                    if(visited[r][c]) continue;
+                    visited[r][c] = true;
+                    if(board[r][c]!=-1) // if snake or ladder
+                        q.push(board[r][c]);
                     else
                         q.push(j+x);
                 }
