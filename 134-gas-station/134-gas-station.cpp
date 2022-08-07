@@ -9,7 +9,6 @@ public:
             tot = tot + (gas[i]-cost[i]);
             if(tot < 0) {
                 st.push(tot);
-                cout << tot << " ";
                 tot = 0;
                 f = false;
             }
@@ -18,13 +17,10 @@ public:
                 idx = i;
             }
         }
-        cout << endl;
-        cout << tot << endl;
         while(st.size() > 0) {
             int a = st.top();
             st.pop();
             tot += a;
-            //cout << tot << endl;
             if(tot < 0 && st.size() >= 0) return -1;
         }
         return idx;
