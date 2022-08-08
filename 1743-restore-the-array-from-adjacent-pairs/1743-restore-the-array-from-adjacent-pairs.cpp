@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int>ans;
     
-    void dfs(int node, unordered_map<int, vector<int>> &mp, set<int>&s) {
+    void dfs(int node, unordered_map<int, vector<int>> &mp, unordered_set<int>&s) {
         if(s.find(node) != s.end()) return;
         ans.push_back(node);
         s.insert(node);
@@ -21,7 +21,7 @@ public:
         for(auto i : mp) {
             if(i.second.size() == 1) src = i.first;
         }
-        set<int>s;
+        unordered_set<int>s;
         dfs(src, mp, s);
         return ans;
     }
