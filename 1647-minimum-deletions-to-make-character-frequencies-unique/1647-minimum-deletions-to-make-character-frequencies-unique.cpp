@@ -1,25 +1,20 @@
 class Solution {
 public:
-    int minDeletions(string s) {
-        int n = s.length();
+    int minDeletions(string str) {
+        int n = str.length();
         unordered_map<char, int>mp;
-        priority_queue<int>pq;
+        unordered_set<int>s;
         int cnt = 0;
         for(int i = 0; i < n; i++) {
-            mp[s[i]]++;
+            mp[str[i]]++;
         }
         for(auto i : mp) {
-            pq.push(i.second);
-        }
-        while(pq.size() > 1) {
-            int a = pq.top();
-            pq.pop();
-            if(a == pq.top()) {
-                if(a-1 > 0) {
-                    pq.push(a-1);
-                }
+            int t = i.second;
+            while(s.find(t) != s.end()) {
+                t--;
                 cnt++;
             }
+            if(t != 0) s.insert(t);
         }
         return cnt;
     }
