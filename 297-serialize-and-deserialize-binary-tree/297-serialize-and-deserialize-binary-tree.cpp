@@ -20,11 +20,9 @@ public:
             TreeNode* top = q.front();
             q.pop();
             if(top == NULL) {
-                //ans.append("#,");
                 ans += "#,";
             }
             else {
-                //ans.append(to_string(top->val) + ",");
                 ans += to_string(top->val) + ",";
             }
             if(top != NULL) {
