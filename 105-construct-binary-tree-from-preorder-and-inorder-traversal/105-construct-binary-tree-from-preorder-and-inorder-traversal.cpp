@@ -11,31 +11,25 @@
  */
 class Solution {
 public:
-    int idx = 0;
-    
-    int findMid(vector<int>& inorder, int lb, int ub, int ele) {
-        for(int i = lb; i <= ub; i++) {
-            if(inorder[i] == ele)
-                return i;
+    TreeNode* solve(vector<int>& preorder, int preStart, int preEnd, vector<int>& inorder, int inStart, int inEnd, unordered_map<int, int>&mp) {
+        if(preStart > preEnd || inStart > inEnd) {
+            return NULL;
         }
-        return 0;
-    }
-    
-    TreeNode* solve(vector<int>&preorder, vector<int>& inorder, int lb, int ub) {
-        if(lb > ub) return NULL;
-        
-        TreeNode* res = new TreeNode(preorder[idx++]);
-        if(lb == ub) return res;
-        
-        int mid = findMid(inorder, lb, ub, res->val);
-        res->left = solve(preorder, inorder, lb, mid-1);
-        res->right = solve(preorder, inorder, mid+1, ub);
-        return res;
+        TreeNode* root = new TreeNode(preorder[preStart]);
+        int inorderIdx = mp[root->val];
+        int numsLeft = inorderIdx - inStart;
+        root->left = solve(preorder, preStart+1, preStart+numsLeft, inorder, inStart, inorderIdx-1, mp);
+        root->right = solve(preorder, preStart+numsLeft+1, preEnd, inorder, inorderIdx+1, inEnd, mp);
+        return root;
     }
     
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        int n = preorder.size();
-        TreeNode* root = solve(preorder, inorder, 0, n-1);
+        unordered_map<int, int>mp;
+        int n = inorder.size();
+        for(int i = 0; i < n; i++) {
+            mp[inorder[i]] = i;
+        }
+        TreeNode* root = solve(preorder, 0, preorder.size()-1, inorder, 0, inorder.size()-1, mp);
         return root;
     }
 };
