@@ -4,12 +4,10 @@ public:
         unordered_map<int, int>mp;
         int n = nums.size();
         for(int i = 0; i < n; i++) {
-            if(mp.find(target-nums[i]) != mp.end()) {
-                return {i, mp[target-nums[i]]};
-            }
-            else {
+            if(mp.find(target-nums[i]) == mp.end()) {
                 mp[nums[i]] = i;
             }
+            else return {i, mp[target-nums[i]]};
         }
         return {0, 0};
     }
