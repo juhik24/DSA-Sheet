@@ -1,12 +1,11 @@
 class Solution {
 public:
-    int di[4] = {-1, 0, 1, 0};
-    int dj[4] = {0, -1, 0, 1};
+    int di[4] = {-1, 1, 0, 0};
+    int dj[4] = {0, 0, -1, 1};
     
-    bool explore(vector<vector<char>>&board, int i, int j, int size, string &word) {
+    bool explore(vector<vector<char>>& board, int i, int j, int size, string &word) {
         if(size == word.length()) return true;
-        if(i < 0 || j < 0 || i >= board.size() || j >= board[0].size()) return false;
-        if(word[size] != board[i][j]) return false;
+        if(i < 0 || j < 0 || i >= board.size() || j >= board[0].size() || word[size] != board[i][j]) return false;
         char ch = board[i][j];
         board[i][j] = '@';
         for(int k = 0; k < 4; k++) {
@@ -25,9 +24,10 @@ public:
         int m = board[0].size();
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < m; j++) {
-                if(board[i][j] != word[0]) continue;
-                bool ans = explore(board, i, j, 0, word);
-                if(ans) return true;
+                if(board[i][j] == word[0]) {
+                    bool ans = explore(board, i, j, 0, word);
+                    if(ans) return true;
+                }
             }
         }
         return false;
