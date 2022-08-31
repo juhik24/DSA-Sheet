@@ -7,12 +7,8 @@ public:
         for(int i = 0; i < n; i++) {
             sum += nums[i];
             int rem = sum%k;
-            if(rem == 0) {
-                cnt++;
-            }
-            else if(rem < 0) {
-                rem += k;
-            }
+            if(rem == 0) cnt++;
+            else if(rem < 0) rem += k;
             if(mp.find(rem) != mp.end()) {
                 cnt += mp[rem];
             }
