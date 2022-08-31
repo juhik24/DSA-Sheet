@@ -7,10 +7,8 @@ public:
         while(i < j) {
             int width = j-i;
             int ht = min(height[i], height[j]);
-            int vol = ht*width;
-            if(vol > max_water) {
-                max_water = vol;
-            }
+            int vol = width*ht;
+            max_water = max(max_water, vol);
             if(height[i] < height[j]) i++;
             else j--;
         }
