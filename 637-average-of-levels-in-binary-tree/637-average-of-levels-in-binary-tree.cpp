@@ -15,7 +15,6 @@ public:
         vector<double>ans;
         queue<TreeNode*>q;
         q.push(root);
-        //bool first = false;
         while(!q.empty()) {
             int size = q.size();
             long long sum = 0.0;
