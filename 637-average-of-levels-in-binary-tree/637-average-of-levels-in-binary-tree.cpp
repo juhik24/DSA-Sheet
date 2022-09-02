@@ -24,8 +24,7 @@ public:
                 q.pop();
                 if(top->left) q.push(top->left);
                 if(top->right) q.push(top->right);
-            }
-            
+            } 
             double avg = (sum*1.0)/size;
             ans.push_back(avg);
         }
