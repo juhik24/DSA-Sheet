@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // Time = O(log n) , Space = O(1) 
+    
     double myPow(double x, int n) {
         double ans = 1.0;
         long long nn = n;
