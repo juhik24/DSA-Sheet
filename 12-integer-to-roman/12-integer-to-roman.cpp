@@ -1,22 +1,14 @@
 class Solution {
 public:
     string intToRoman(int num) {
+        int arr[13] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        string symbol[13] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         string ans = "";
-        int n = 13;
-        int arr[13] = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
-        string ch[13] = {"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
-        for(int i = n-1; i >= 0; i--) {
-            if(num == arr[i]) {
-                ans+= ch[i];
-                break;
+        for(int i = 0; i < 13; i++) {
+            while(num >= arr[i]) {
+                ans += symbol[i];
+                num -= arr[i];
             }
-            if(num/arr[i]>0) {
-                int cnt = num/arr[i];
-                while(cnt--) {
-                    ans += ch[i];
-                }
-            }
-            num = num%arr[i];
         }
         return ans;
     }
