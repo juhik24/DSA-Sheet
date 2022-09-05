@@ -13,17 +13,15 @@ public:
             }
             if(temp == ".") continue;
             else if(temp == "..") {
-                if(!st.empty()) st.pop();
+                if(st.size() > 0) st.pop();
             }
-            else {
-                st.push(temp);
-            }
+            else st.push(temp);
         }
-        while(!st.empty()) {
-            ans = '/' + st.top() + ans;
+        while(st.size() > 0) {
+            ans = "/" + st.top() + ans;
             st.pop();
         }
-        if(ans.size() == 0) ans += "/";
+        if(ans.length() == 0) ans += '/';
         return ans;
     }
 };
