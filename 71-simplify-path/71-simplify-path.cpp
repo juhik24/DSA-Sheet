@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // Time = O(n) ,  Space = O(n) 
+    
     string simplifyPath(string path) {
         int n = path.length();
         stack<string>st;
