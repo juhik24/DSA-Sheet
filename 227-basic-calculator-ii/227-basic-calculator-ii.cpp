@@ -6,29 +6,35 @@ public:
         char sign = '+';
         for(int i = 0; i < n; i++) {
             char ch = s[i];
-            if(isdigit(ch)) {
+            if(isdigit(s[i])) {
                 int val = 0;
-                while(i < n && isdigit(s[i])) {
-                    val = val*10 + (s[i]-'0');
+                while(isdigit(s[i])) {
+                    val = (val*10)+(s[i]-'0');
                     i++;
                 }
                 i--;
-                if(sign == '+') st.push(val);
-                else if(sign == '-') st.push(-val);
+                if(sign == '+') {
+                    st.push(val);
+                }
+                else if(sign == '-') {
+                    st.push(-val);
+                }
                 else if(sign == '*') {
                     int a = st.top();
                     st.pop();
-                    int ans = a*val;
-                    st.push(ans);
+                    int sum = val*a;
+                    st.push(sum);
                 }
                 else if(sign == '/') {
                     int a = st.top();
                     st.pop();
-                    int ans = a/val;
-                    st.push(ans);
+                    int sum = a/val;
+                    st.push(sum);
                 }
             }
-            else if(ch != ' ') sign = ch; 
+            else if(s[i] != ' ') {
+                sign = s[i];
+            }
         }
         int sum = 0;
         while(st.size() > 0) {
