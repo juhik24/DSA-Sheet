@@ -11,6 +11,8 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(n) for recursion stack
+    
     bool hasOne(TreeNode* root) {
         if(root == NULL) return false;
         bool left = hasOne(root->left);
