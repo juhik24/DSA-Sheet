@@ -1,5 +1,7 @@
 class Solution {
 public:
+    //Time = O(n), Space = O(n) 
+    
     int calculate(string s) {
         int n = s.length();
         stack<int>st;
