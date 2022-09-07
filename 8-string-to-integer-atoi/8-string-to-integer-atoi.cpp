@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // Time = O(n), Space = O(1) 
+    
     int myAtoi(string s) {
         int n = s.length();
         long num = 0;
