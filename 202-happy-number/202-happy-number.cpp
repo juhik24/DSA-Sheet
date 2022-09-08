@@ -1,14 +1,16 @@
 class Solution {
 public:
     bool isHappy(int n) {
-        unordered_map<int, int>mp;
+        unordered_set<int>s;
         while(n != 1) {
-            if(mp.find(n) == mp.end()) mp[n]++;
+            if(s.find(n) == s.end()) {
+                s.insert(n);
+            }
             else return false;
             int sum = 0;
             while(n) {
                 int a = n%10;
-                sum += pow(a, 2);
+                sum += a*a;
                 n = n/10;
             }
             n = sum;
