@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // Time = O(log x), Space = O(1) 
+    
     int reverse(int x) {
         int num = 0;
         while(x) {
