@@ -1,8 +1,12 @@
 class Solution {
 public:
+    // Time = O(nlogn), Space = O(1) 
+    
     bool isHappy(int n) {
         if(n == 1 || n == 7) return true;
         int sum = n, x = n;
+        // This loop executes till the sum of square of digits
+        // obtained is not a single digit number
         while(sum > 9) {
             sum = 0;
             while(x) {
