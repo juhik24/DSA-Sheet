@@ -1,9 +1,11 @@
 class Solution {
 public:
+    // Time = O(n), Space = O(n) 
+    
     int furthestBuilding(vector<int>& heights, int bricks, int ladders) {
         int n = heights.size();
         int cnt=0;
-        priority_queue<int, vector<int>, greater<int>>pq;
+        priority_queue<int, vector<int>, greater<int>>pq;  // max heap
         for(int i = 0; i < n-1; i++) {
             int t = bricks;
             int diff = heights[i+1]-heights[i];
