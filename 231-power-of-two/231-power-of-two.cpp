@@ -1,5 +1,11 @@
 class Solution {
 public:
+    // Time = O(1), Space = O(1) 
+    
+    //n = 16 = 2^4 = 10000
+    //n-1 =          01111
+    //             = 00000 all are 0's so it is 2 power n
+    
     bool isPowerOfTwo(int n) {
         if(n <= 0) return false;
         long long val = (n & (n-1));
