@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // Time = O(log26n), Space = O(1) 
+    
     string convertToTitle(int columnNumber) {
         string ans = "";
         char temp;
