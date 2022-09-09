@@ -26,27 +26,23 @@ public:
                 }
                 list1 = list1->next;
             }
-            else if(list2->val < list1->val) {
+            else {
                 if(head == NULL) {
                     head = list2;
                     temp = head;
                 }
                 else {
-                     temp->next = list2;
-                     temp = temp->next;
+                    temp->next = list2;
+                    temp = temp->next;
                 }
                 list2 = list2->next;
             }
         }
-        while(list1) {
+        if(list1 != NULL) {
             temp->next = list1;
-            temp = temp->next;
-            list1 = list1->next;
         }
-        while(list2) {
+        if(list2 != NULL) {
             temp->next = list2;
-            temp = temp->next;
-            list2 = list2->next;
         }
         return head;
     }
