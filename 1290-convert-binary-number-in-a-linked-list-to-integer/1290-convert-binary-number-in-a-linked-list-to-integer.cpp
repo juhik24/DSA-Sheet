@@ -10,14 +10,16 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(1) 
+    
     int getDecimalValue(ListNode* head) {
-        int n=0;
         ListNode* temp = head;
+        int num = 0;
         while(temp) {
             int digit = temp->val;
-            n = (n*2)+digit;
+            num = (num*2) + digit;
             temp = temp->next;
         }
-        return n;
+        return num;
     }
 };
