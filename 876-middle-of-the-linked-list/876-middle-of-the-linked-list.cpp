@@ -10,6 +10,8 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(1) 
+    
     ListNode* middleNode(ListNode* head) {
         ListNode* slow, *fast;
         slow = head;
