@@ -10,11 +10,12 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(1) 
+    
     ListNode* removeElements(ListNode* head, int val) {
-        ListNode* temp1, *temp2;
-        if(head == NULL) return head; 
-        temp1 = head;
-        temp2 = head->next;
+        if(head == NULL) return head;
+        ListNode* temp1 = head;
+        ListNode* temp2 = head->next;
         while(temp2) {
             if(temp2->val == val) {
                 temp1->next = temp2->next;
