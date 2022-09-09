@@ -8,6 +8,8 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(1) 
+    
     bool hasCycle(ListNode *head) {
         ListNode* slow, *fast;
         slow = head;
