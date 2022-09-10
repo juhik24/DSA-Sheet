@@ -10,6 +10,8 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(1) 
+    
     ListNode* reverse(ListNode* head) {
         ListNode* cur = head, *prev = NULL, *next;
         while(cur) {
@@ -23,19 +25,18 @@ public:
     }
     
     bool isPalindrome(ListNode* head) {
-        if(head == NULL || head->next == NULL) return true;
-        ListNode* slow, *fast;
-        slow = head, fast = head->next;
+        ListNode* slow = head;
+        ListNode* fast = head->next;
         while(fast && fast->next) {
             slow = slow->next;
             fast = fast->next->next;
         }
         ListNode* temp = reverse(slow->next);
         while(temp) {
-            if(head->val != temp->val) return false;
+            if(temp->val != head->val) return false;
             else {
-                 head = head->next;
-                 temp = temp->next;
+                temp = temp->next;
+                head = head->next;
             }
         }
         return true;
