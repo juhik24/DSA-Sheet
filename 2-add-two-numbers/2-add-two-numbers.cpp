@@ -10,6 +10,8 @@
  */
 class Solution {
 public:
+    // Time = O(max(m, n)), Space = O(max(m, n)) 
+    
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         ListNode* head = NULL, *prev = NULL;
         int carry = 0;
