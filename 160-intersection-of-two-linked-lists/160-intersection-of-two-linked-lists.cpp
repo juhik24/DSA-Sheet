@@ -8,6 +8,8 @@
  */
 class Solution {
 public:
+    // Time = O(m+n), Space = O(1) 
+    
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         if(headA == NULL || headB == NULL) return NULL;
         ListNode* temp = NULL;
