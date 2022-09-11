@@ -10,6 +10,8 @@
  */
 class Solution {
 public:
+    // Time = O(max(m, n)), Space = O(max(m, n)) 
+    
     ListNode* reverse(ListNode* head) {
         ListNode* cur = head, *prev = NULL, *next;
         while(cur) {
@@ -29,21 +31,25 @@ public:
         int carry = 0;
         while(l1 || l2 || carry != 0) {
             int x = 0, y = 0;
-            if(l1!=NULL) {
+            if(l1) {
                 x = l1->val;
                 l1 = l1->next;
             }
-            if(l2 != NULL) {
+            if(l2) {
                 y = l2->val;
                 l2 = l2->next;
             }
             int num = x+y+carry;
             carry = num/10;
             int digit = num%10;
-            ListNode* cur = new ListNode(digit);
-            if(head == NULL) head = cur;
-            if(prev != NULL) prev->next = cur;
-            prev = cur;
+            ListNode* temp = new ListNode(digit);
+            if(head == NULL) {
+                head = temp;
+            }
+            if(prev != NULL) {
+                prev->next = temp;
+            }
+            prev = temp;
         }
         head = reverse(head);
         return head;
