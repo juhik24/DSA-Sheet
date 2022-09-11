@@ -10,6 +10,8 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(1) 
+    
     ListNode* partition(ListNode* head, int x) {
         ListNode* before = new ListNode(0);
         ListNode* after = new ListNode(0);
