@@ -10,6 +10,8 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(1) 
+    
     ListNode* deleteDuplicates(ListNode* head) {
         ListNode* temp = new ListNode(0);
         temp->next = head;
