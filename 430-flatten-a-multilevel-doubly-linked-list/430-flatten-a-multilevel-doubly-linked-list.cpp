@@ -11,11 +11,14 @@ public:
 
 class Solution {
 public:
+    // Time = O(n), Space = O(n) for recursion stack
+    
     Node* solve(Node* head) {
        Node* cur = head, *temp = head;
         while(cur) {
             Node* child = cur->child;
             Node* next = cur->next;
+            // Every time we see a child we recursively call the function for child and insert it in b/w of cur and cur->next
             if(child) {
                 Node* tail = solve(child);
                 tail->next = next;
