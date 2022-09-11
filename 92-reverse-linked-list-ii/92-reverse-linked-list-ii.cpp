@@ -10,6 +10,8 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(1) 
+    
     ListNode* reverseBetween(ListNode* head, int left, int right) {
         ListNode* temp = new ListNode(0);
         temp->next = head;
@@ -23,6 +25,7 @@ public:
         int n = right-left+1;
         ListNode* prev = NULL, *next;
         i = 0;
+        // Reverse
         while(i < n) {
             next = cur->next;
             cur->next = prev;
@@ -30,6 +33,7 @@ public:
             cur = next;
             i++;
         }
+        // change the boundary pointers
         leftPrev->next->next = cur;
         leftPrev->next = prev;
         return temp->next;
