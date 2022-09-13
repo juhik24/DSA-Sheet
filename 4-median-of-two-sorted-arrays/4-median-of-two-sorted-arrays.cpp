@@ -33,9 +33,7 @@ public:
         if(n%2 == 0) {
             int m1 = n/2;
             int m2 = m1-1;
-           // cout << m1 << " " << m2;
             int med = (v[m1]+v[m2])*1.0/2.0;
-            cout << med;
             if((v[m1]+v[m2])%2 > 0) {
                 return med+0.5;
             }
@@ -43,7 +41,6 @@ public:
         }
         else  {
             int m = n/2;
-            cout << m;
             return v[m]*1.0;
         }
     }
