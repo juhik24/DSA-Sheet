@@ -10,6 +10,8 @@
  */
 class Solution {
 public:
+    // Time = O(m+n), Space = O(1) 
+    
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
         ListNode* head = new ListNode(NULL);
         ListNode* temp = head;
