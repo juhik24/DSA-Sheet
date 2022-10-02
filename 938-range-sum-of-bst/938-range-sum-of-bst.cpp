@@ -11,6 +11,8 @@
  */
 class Solution {
 public:
+    // Time = O(N), Space = O(N)->recursion stack
+    
     void solve(TreeNode* root, int low, int high, int &sum) {
         if(root == NULL) return;
         if(root->val >= low && root->val <= high) {
