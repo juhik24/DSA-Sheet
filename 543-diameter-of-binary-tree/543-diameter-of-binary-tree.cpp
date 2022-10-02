@@ -11,12 +11,22 @@
  */
 class Solution {
 public:
-    int solve(TreeNode* root, int &d) {
+    // For any given node, we'll find out the height of left half and right half and then we'll add them up.
+    // so that is the longest path through the given node.
+    // So if we find left height + right height across every given node, so max of left height and right height will be the diameter of the tree.
+    
+    int Height(TreeNode* root) {
         if(root == NULL) return 0;
-        int left = solve(root->left, d);
-        int right = solve(root->right, d);
+        return max(Height(root->left), Height(root->right))+1;
+    }
+    
+    void solve(TreeNode* root, int &d) {
+        if(root == NULL) return;
+        int left = Height(root->left);
+        int right = Height(root->right);
         d = max(d, left+right);
-        return max(left, right)+1;
+        solve(root->left, d);
+        solve(root->right, d);
     }
     
     int diameterOfBinaryTree(TreeNode* root) {
