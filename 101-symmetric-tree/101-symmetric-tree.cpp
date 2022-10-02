@@ -11,6 +11,8 @@
  */
 class Solution {
 public:
+    // Time = O(N), space = O(N) -> recursion stack
+    
     bool solve(TreeNode* l, TreeNode* r) {
         if(l == NULL || r == NULL) {
             return l == r;
