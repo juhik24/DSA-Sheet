@@ -11,10 +11,10 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(n)->recursion stack
+    
     void solve(TreeNode* root) {
-        if(root == NULL) {
-            return;
-        }
+        if(root == NULL) return;
         solve(root->left);
         solve(root->right);
         TreeNode* temp = root->left;
