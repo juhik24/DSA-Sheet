@@ -11,6 +11,8 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(1), O(n) for recursion stack && tree nodes
+    
     TreeNode* BST(vector<int>& nums, int start, int end) {
         if(start > end) return NULL;
         int mid = (start+end)/2;
