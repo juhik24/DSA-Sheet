@@ -11,6 +11,8 @@
  */
 class Solution {
 public:
+    // Time = O(N), Space = O(N) 
+    
     TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
         if(root1 != NULL && root2 != NULL) {
             TreeNode* root = new TreeNode(root1->val + root2->val);
