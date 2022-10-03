@@ -11,6 +11,8 @@
  */
 class Solution {
 public:
+    // Time = O(Cn)->nth catalan, Space = O(Cn) 
+    
     vector<TreeNode*> solve(int start, int end) {
         vector<TreeNode*>ans;
         if(start > end) {
