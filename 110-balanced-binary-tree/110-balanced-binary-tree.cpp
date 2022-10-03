@@ -18,7 +18,6 @@ public:
         if(root == NULL) return 0;
         int left = height(root->left, ans);
         int right = height(root->right, ans);
-        if(ans == false) return false;
         if(abs(left-right) > 1) ans = false;
         return max(left, right)+1;
     }
