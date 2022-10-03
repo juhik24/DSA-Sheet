@@ -11,8 +11,9 @@
  */
 class Solution {
 public:
-    int sum = 0;
-    void solve(TreeNode* root, bool flag) {
+    // Time = O(n), Space = O(n) 
+    
+    void solve(TreeNode* root, int &sum, bool flag) {
         if(root == NULL) return;
         if(root->left == NULL && root->right == NULL) {
             if(flag == true) {
@@ -20,14 +21,15 @@ public:
             }
             return;
         }
-        solve(root->left, true);
-        solve(root->right, false);
+        solve(root->left, sum, true);
+        solve(root->right, sum, false);
     }
     
     int sumOfLeftLeaves(TreeNode* root) {
+        int sum = 0;
         if(root->left == NULL && root->right == NULL) return sum;
-        solve(root->left, true);
-        solve(root->right, false);
+        solve(root->left, sum, true);
+        solve(root->right, sum, false);
         return sum;
     }
 };
