@@ -11,32 +11,28 @@
  */
 class Solution {
 public:
-    void paths(TreeNode* root, vector<string>&ans, string &str) {
+    void paths(TreeNode* root, string str, vector<string>&ans) {
         string temp = str;
+        temp += "->" + to_string(root->val);
         if(root->left == NULL && root->right == NULL) {
-            temp = temp + "->" + to_string(root->val);
             ans.push_back(temp);
             return;
         }
-        
-        temp =  temp + "->" + to_string(root->val);
-        if(root->left) paths(root->left, ans, temp);
-        if(root->right) paths(root->right, ans, temp);
+        if(root->left) paths(root->left, temp, ans);
+        if(root->right) paths(root->right, temp, ans);
     }
     
     vector<string> binaryTreePaths(TreeNode* root) {
         vector<string>ans;
         string str = "";
-        if(root == NULL) {
-            return ans;
-        }
+        if(root == NULL) return ans;
         str += to_string(root->val);
         if(root->left == NULL && root->right == NULL) {
             ans.push_back(str);
             return ans;
         }
-        if(root->left) paths(root->left, ans, str);
-        if(root->right) paths(root->right, ans, str);
+        if(root->left) paths(root->left, str, ans);
+        if(root->right) paths(root->right, str, ans);
         return ans;
     }
 };
