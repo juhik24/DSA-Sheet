@@ -11,6 +11,8 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(n)->recursion stack
+    
     bool solve(TreeNode* root, int targetSum, int sum) {
         if(root == NULL) return false;
         sum += root->val;
@@ -19,7 +21,8 @@ public:
     }
     
     bool hasPathSum(TreeNode* root, int targetSum) {
+        int sum = 0;
         if(root == NULL) return false;
-        return solve(root, targetSum, 0);
+        return solve(root, targetSum, sum);
     }
 };
