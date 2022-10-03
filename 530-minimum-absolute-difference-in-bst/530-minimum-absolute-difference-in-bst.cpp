@@ -11,20 +11,21 @@
  */
 class Solution {
 public:
-    int diff = INT_MAX;
-    TreeNode* prev = NULL;
+    // Time = O(n), Space = O(n)->recursion stack
     
-    void solve(TreeNode* root) {
-        if(root->left) solve(root->left);
+    void solve(TreeNode* root, int &diff, TreeNode* &prev) {
+        if(root->left) solve(root->left, diff, prev);
         if(prev != NULL) {
-            diff = min(diff, abs(prev->val - root->val));
+            diff = min(diff, abs(root->val-prev->val));
         }
         prev = root;
-        if(root->right) solve(root->right);
+        if(root->right) solve(root->right, diff, prev);
     }
     
     int getMinimumDifference(TreeNode* root) {
-        solve(root);
+        int diff = INT_MAX;
+        TreeNode* prev = NULL;
+        solve(root, diff, prev);
         return diff;
     }
 };
