@@ -11,6 +11,8 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(n) 
+    
     void paths(TreeNode* root, string str, vector<string>&ans) {
         string temp = str;
         temp += "->" + to_string(root->val);
