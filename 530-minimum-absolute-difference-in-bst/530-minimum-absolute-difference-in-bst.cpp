@@ -13,6 +13,8 @@ class Solution {
 public:
     // Time = O(n), Space = O(n)->recursion stack
     
+    // We'll traverse the tree in inorder and maintain a prev pointer and calculate the difference between two prev node and current node and update the diff when we get a minimum absolute diff.
+    
     void solve(TreeNode* root, int &diff, TreeNode* &prev) {
         if(root->left) solve(root->left, diff, prev);
         if(prev != NULL) {
