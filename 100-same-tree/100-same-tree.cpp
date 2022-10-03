@@ -11,6 +11,8 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(n)->recursion stack
+    
     bool isSameTree(TreeNode* p, TreeNode* q) {
         if(p == NULL && q == NULL) return true;
         if(p != NULL && q != NULL && p->val == q->val) {
