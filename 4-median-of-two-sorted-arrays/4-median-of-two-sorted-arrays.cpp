@@ -1,5 +1,11 @@
 class Solution {
 public:
+    // Time = O(m+n log(m+n)), Space = O(m+n) 
+    
+    // Merge the two array into one sorted array and the find the median of the final array.
+    // Median when length is even => mid = n/2 , median = arr[mid]+arr[mid-1]/2
+    // Median when length is odd => mid = n/2, median = arr[mid] 
+    
     vector<int> merge(vector<int>& nums1, vector<int> &nums2) {
         int n = nums1.size();
         int m = nums2.size();
