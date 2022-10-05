@@ -11,24 +11,26 @@
  */
 class Solution {
 public:
-    int cnt = 0;
-    
-    void solve(TreeNode* root, int targetSum, vector<int>&path) {
+    void innerDFS(TreeNode* root, int targetSum, long long sum, int &cnt) {
         if(root == NULL) return;
-        path.push_back(root->val);
-        solve(root->left, targetSum, path);
-        solve(root->right, targetSum, path);
+        sum += root->val;
+        if(sum == targetSum) cnt++;
+        innerDFS(root->left, targetSum, sum, cnt);
+        innerDFS(root->right, targetSum, sum, cnt);
+    }
+    
+    void outerDFS(TreeNode* root, int targetSum, int &cnt) {
+        if(root == NULL) return;
         long long sum = 0;
-        for(int i = path.size()-1; i >= 0; i--) {
-            sum += path[i];
-            if(sum == targetSum) cnt++;
-        }
-        path.pop_back();
+        innerDFS(root, targetSum, sum, cnt);
+        outerDFS(root->left, targetSum, cnt);
+        outerDFS(root->right, targetSum, cnt);
     }
     
     int pathSum(TreeNode* root, int targetSum) {
-        vector<int>path;
-        solve(root, targetSum, path);
+        int cnt = 0;
+        if(root == NULL) return cnt;
+        outerDFS(root, targetSum, cnt);
         return cnt;
     }
 };
