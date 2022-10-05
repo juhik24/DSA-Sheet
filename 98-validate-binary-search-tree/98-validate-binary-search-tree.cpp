@@ -9,6 +9,8 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+// Time = O(N), Space = O(N)->recursion stack
+
 class Solution {
 public:
     bool check(TreeNode* root, long mn, long mx) {
