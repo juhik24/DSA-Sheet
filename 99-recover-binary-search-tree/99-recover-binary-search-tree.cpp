@@ -13,7 +13,9 @@ class Solution {
 public:
     // Time = O(n), Space = O(n)->recursion stack
     
-    // Here also we'll do inorder traversal and keep a prev pointer if value of prev < curr node then we'll prev and curr node in first and second pointer and if again got prev < curr then we'll store curr in last pointer. And we'll swap (first, last). If we didn't get last then we'll swap(first , middle).
+    // Here also we'll do inorder traversal and keep three pointers first, middle & last. Whenever we get prev node value > cuurent node then first pointer will point to prev and middle will point to current node.
+    // When we find again that prev > cuurent node then we'll update last pointer with the current node.
+    //If the last pointer is NULL then we'll swap(first, middle) otherwise we'll swap(first, last)
     
     TreeNode* prev, *first, *middle, *last;
     
