@@ -40,7 +40,7 @@ public:
     }
 };
 
-// Brute force = Time = O(n+nlogn), Space = O(n)->vector
+// Brute force = Time = O(nlogn), Space = O(n)->vector
 
 // Here we'll store all node values in a vector and then sort it. as inorder of bst contains elements in sorted order. And then we can assign vector values to nodes . 
 
