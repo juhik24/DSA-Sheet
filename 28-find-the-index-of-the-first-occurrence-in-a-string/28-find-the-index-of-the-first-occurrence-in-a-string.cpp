@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // Time = O(n*m), Space = O(1) 
+    
     int strStr(string haystack, string needle) {
         int n = haystack.length();
         int m = needle.length();
