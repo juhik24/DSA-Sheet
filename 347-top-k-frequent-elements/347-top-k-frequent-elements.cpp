@@ -1,6 +1,6 @@
 class Solution {
 public:
-    // Time = O(n), Space = O(n) 
+    // Time = O(nlogn)->worst case, O(klog n)->average case, Space = O(n) 
     
     vector<int> topKFrequent(vector<int>& nums, int k) {
         priority_queue<pair<int, int>>pq;
