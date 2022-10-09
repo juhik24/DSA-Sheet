@@ -3,7 +3,7 @@ public:
     // Time = O(nlogL)-> L = ladders, Space = O(L)
     
     // We'll create a min priority queue and maintain a variable bricksUsed.
-    // Whenever we see the next building is greater(i.e, the diff of cuurent building & next building is greater than 0 then we'll store the diff in priority queue)
+    // Whenever we see the next building is greater(i.e, the diff of current building & next building is greater than 0 then we'll store the diff in priority queue)
     // If pq.size() becomes greater than no. of ladders then we'll pop the top element from pq (i.e, min diff) and add it to bricksUsed.
     // If bricksUsed becomes greater than no. of bricks then we'll return that index, because that will be the last index.
     
