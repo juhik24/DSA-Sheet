@@ -11,26 +11,42 @@
  */
 class Solution {
 public:
-    // Time = O(n), Space = O(n)
-    
-    void preorder(TreeNode* root, queue<TreeNode*>&q) {
-        if(root == NULL) return;
-        q.push(root);
-        preorder(root->left, q);
-        preorder(root->right, q);
+    void solve(TreeNode* node, TreeNode* &prev) {
+        if(node == NULL) return;
+        solve(node->right, prev);
+        solve(node->left, prev);
+        node->right = prev;
+        node->left = NULL;
+        prev = node;
     }
     
     void flatten(TreeNode* root) {
-        if(root == NULL) return;
-        queue<TreeNode*>q;
-        preorder(root, q);
-        TreeNode* temp = q.front();
-        q.pop();
-        while(!q.empty()) {
-            temp->right = q.front();
-            temp->left = NULL;
-            temp = q.front();
-            q.pop();
-        }
+        TreeNode* prev = NULL;
+        solve(root, prev);
     }
 };
+
+// Time = O(n), Space = O(n)
+
+// Here we can do a preorder traversal and store all the nodes in a queue and then we can change the pointers of right child by popping elements from queue.
+    
+//     void preorder(TreeNode* root, queue<TreeNode*>&q) {
+//         if(root == NULL) return;
+//         q.push(root);
+//         preorder(root->left, q);
+//         preorder(root->right, q);
+//     }
+    
+//     void flatten(TreeNode* root) {
+//         if(root == NULL) return;
+//         queue<TreeNode*>q;
+//         preorder(root, q);
+//         TreeNode* temp = q.front();
+//         q.pop();
+//         while(!q.empty()) {
+//             temp->right = q.front();
+//             temp->left = NULL;
+//             temp = q.front();
+//             q.pop();
+//         }
+//     }
