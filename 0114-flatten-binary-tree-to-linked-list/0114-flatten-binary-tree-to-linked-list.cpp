@@ -11,6 +11,10 @@
  */
 class Solution {
 public:
+    // Time = O(n), Space = O(n) -> recursion stack
+    
+    // Here we can do a reverse postorder and maintain a prev pointer. After the reverse postorder gets completed for a node we'll assign the prev as right child of that node and store the current node in the prev.
+    
     void solve(TreeNode* node, TreeNode* &prev) {
         if(node == NULL) return;
         solve(node->right, prev);
