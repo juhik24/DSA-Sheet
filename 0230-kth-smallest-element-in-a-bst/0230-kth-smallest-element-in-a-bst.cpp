@@ -13,19 +13,19 @@ class Solution {
 public:
     // Time = O(n), Space = O(n)->recursion stack
     
-    void solve(TreeNode* root, int &k, int &data) {
+    void inorder(TreeNode* root, int &k, int &data) {
         if(root == NULL) return;
-        solve(root->left, k, data);
+        inorder(root->left, k, data);
         if(k == 1) {
             data = root->val;
         }
         k--;
-        solve(root->right, k, data);
+        inorder(root->right, k, data);
     }
     
     int kthSmallest(TreeNode* root, int k) {
         int data = 0;
-        solve(root, k, data);
+        inorder(root, k, data);
         return data;
     }
 };
