@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // Time = O(n), Space = O(n) 
+    
     int minInsertions(string s) {
         int n = s.length();
         stack<char>st;
