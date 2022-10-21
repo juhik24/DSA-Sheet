@@ -19,7 +19,6 @@ public:
                 low = mid+1;
             }
         }
-        //cout << idx << " ";
         return idx;
     }
 
