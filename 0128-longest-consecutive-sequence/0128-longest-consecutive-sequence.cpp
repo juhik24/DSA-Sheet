@@ -3,9 +3,9 @@ public:
     // Time = O(nlogn), Space = O(1) 
     
     int longestConsecutive(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
         int n = nums.size();
         if(n == 0) return 0;
+        sort(nums.begin(), nums.end());
         int len = 1, maxLen = 1;
         int ele = nums[0];
         for(int i = 1; i < n; i++) {
