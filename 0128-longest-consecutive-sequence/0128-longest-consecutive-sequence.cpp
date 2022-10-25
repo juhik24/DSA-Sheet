@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // Time = O(nlogn), Space = O(1) 
+    
     int longestConsecutive(vector<int>& nums) {
         sort(nums.begin(), nums.end());
         int n = nums.size();
