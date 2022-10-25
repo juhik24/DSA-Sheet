@@ -1,6 +1,8 @@
 class Solution {
 public:
-    // Time = O(m*n), Space = O(m*n) 
+    // Time = O(m-1), Space = O(1) 
+    
+    // Formula = m+n-2 (C) m-1 -> (nCr) 
     
     int uniquePaths(int m, int n) {
         int N = n+m-2;
