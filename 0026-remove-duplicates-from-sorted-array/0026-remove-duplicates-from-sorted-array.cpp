@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // Time = O(n), Space = O(1) 
+    
     int removeDuplicates(vector<int>& nums) {
         int n = nums.size();
         int count = 1;
