@@ -15,7 +15,7 @@ public:
     //Calculate the length of linked list.
     //if length is a multiple of k than after k times rotation it will return the original head.
     // And if len is not a multiple of k then we have to rotate the LL k%n times.
-    // Like if len = 12 & k = 5 so k%n = 2. we have to rotate 2 times only. ecause if we rotate the LL 10 times it will give the original head. so we have to rotate only remaining 2 times.
+    // Like if len = 12 & k = 5 so k%n = 2. we have to rotate 2 times only. because if we rotate the LL 10 times it will give the original head. so we have to rotate only remaining 2 times.
     // For that we'll connect the last & first node & make it a circular LL.
     // Then we move from head till (k = k%n) n-kth node and change the pointers of head and tail.
     
