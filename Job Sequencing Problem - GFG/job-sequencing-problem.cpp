@@ -26,6 +26,8 @@ struct Job
 class Solution 
 {
     public:
+    // Time = O(nlogn)+O(n*m) m=max_dead; Space = O(m) 
+    
     static bool cmp(Job a, Job b) {
         if(a.profit > b.profit) return true;
         else return false;
