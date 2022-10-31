@@ -1,6 +1,8 @@
 class MinStack {
 public:
-    // Time = O(1), Space = O(N)
+    // Time = O(1), Space = O(N) or O(2N)
+    
+    // Here we are creating a stack of pairs and pair will contain the current value and min. element till now.
     
     vector<pair<int, int>>v;
     
